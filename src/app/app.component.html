@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VACINÔMETRO RORAIMA</title>
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 banner">
+          <img src="../assets/banner.png" alt="" width="100%">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-12 p-3" style="background-color: #00A5F7; text-align: center;">
+        <h1 style="font-size: 2rem;text-transform: uppercase;">Vacinômetro</h1>
+        <h2 style="text-transform: uppercase;">Covid-19</h2>
+      </div>
+    </div>
+  </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row mt-4 mb-4">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card deck mt-2 mb-2" style="background-color: #DA6F2D; color: #fff;">
+                <div class="card-block p-3">
+                    <h4 class="card-title">Total de Vacinados</h4>
+                    <p class="card-text">{{ data.totalValcinados | number: '1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card deck mt-2 mb-2" style="background-color: #f0ba37; color: #fff;" >
+                <div class="card-block  p-3">
+                    <h4 class="card-title">Total Vacinados Hoje</h4>
+                    <p class="card-text">{{ data.totalVacinadosHoje | number: '1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix visible-sm hidden-md-up"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card deck mt-2 mb-2" style="background-color: #199DDD; color: #fff;">
+                <div class="card-block  p-3">
+                    <h4 class="card-title">Locais de Vacinação</h4>
+                    <p class="card-text">{{ data.totalEstabelecimentos | number: '1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card deck mt-2 mb-2" style="background-color: #5C3B87; color: #fff;">
+                <div class="card-block  p-3">
+                    <h4 class="card-title">Total de Vacinadores</h4>
+                    <p class="card-text">{{ data.totalVacinadores | number: '1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6 mt-2 mb-2">
+          <div class="card categorias">
+            <div class="card-header">
+              Vacinados por categoria
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor='let item of data.totalCategorias'>
+                  <a href="#" (click)='filtrar($event, item.categoria, item.codigo)'>
+                    {{ item.categoria }} <span class="badge badge-info float-right" >{{ item.quantidade | number: '1.0-0' }}</span>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-2 mb-2">
+          <div class="card categorias">
+            <div class="card-header">
+              {{ categoriaDefault }}
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush" >
+                <li class="list-group-item" *ngFor='let item of data.totalSubcategorias'>
+                  {{ item.grupo_atendimento }} <span class="badge badge-primary badge-info float-right">{{ item.quantidade | number: '1.0-0' }}</span>
+
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mt-2 mb-2">
+          <div class="card vacinados-por-local">
+            <div class="card-header">
+              Vacinados por local
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <table class=" borderless" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th scope="col">Unidade de Saúde</th>
+                    <th scope="col">Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data.totalVacinadosPorLocal">
+                      <td class="border-right">{{ item.estabelecimento }}</td>
+                      <td>{{ item.quantidade | number: '1.0-0' }}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card mt-2 mb-2 vacinados-por-dia">
+            <div class="card-header">
+              Vacinados por dia
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <app-barchart
+                [barChartData]="barChartData"
+                [barChartLabels]="barChartLabels"
+              ></app-barchart>
+              </div>
+              </div>
+        </div>
+      </div>
+
+    </div>
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12">
+           <small class="block">* Dados sujeitos a revisão a qualquer tempo pelo estado. Última Atualização: {{ dataAtualizacao }}</small>
+           <small class="block">** A estrutura dos dados segue o padronizado e esclarecido na NOTA INFORMATIVA Nº 1/2021-CGPNI/DEIDT/SVS/MS.</small>
+            <small class="block">O objetivo é permitir a transmissão dos dados a RNDS (Rede Nacional de Dados em Saúde). A nota bem como seus anexos, podem ser consultadas no site do CONASEMS (aqui)</small>
+            <small class="block">*** Devido a necessidade emergencial de desenvolvimento de software próprio, ainda não foi possível realizar a integração com a RNDS (Rede Nacional de Dados em Saúde), que alimenta os painéis nacionais.</small>
+            <small class="block">*** Fonte de dados Rede Nacional de Dados em Saúde CSV</small>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-8">
+          <small class="block">© 2021 - Secretaria Estadual de Saúde - SESAU</small>
+          <small class="block">Desenvolvido por DTI SEGAD/SESAU</small>
+        </div>
+        <div class="col-6 col-md-4 text-right">
+          <img src="../assets/gove.png" alt="">
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
