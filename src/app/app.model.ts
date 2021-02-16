@@ -4,9 +4,9 @@ export class AppModel {
   totalVacinadosHoje: string;
   totalEstabelecimentos: string;
   totalVacinadores: string;
-  totalVacinadosPorLocal: string;
+  totalVacinadosPorMunicipio: any[];
   totalVacinadosporDia: any;
   totalCategorias: string;
   totalSubcategorias: string;
-
+  totalPorDose: any[];
 }

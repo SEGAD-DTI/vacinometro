@@ -36,11 +36,19 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #f0ba37; color: #fff;" >
                 <div class="card-block  p-3">
-                    <h4 class="card-title">Total Vacinados Hoje</h4>
-                    <p class="card-text">{{ data.totalVacinadosHoje | number: '1.0-0' }}</p>
+                    <h4 class="card-title">Total vacinados ({{ data.totalPorDose[0].descricao.trim() }})</h4>
+                    <p class="card-text">{{ data.totalPorDose[0].quantidade | number: '1.0-0' }}</p>
                 </div>
             </div>
         </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;" >
+              <div class="card-block  p-3">
+                  <h4 class="card-title">Total vacinados ({{ data.totalPorDose[1].descricao.trim() }})</h4>
+                  <p class="card-text">{{ data.totalPorDose[1].quantidade | number: '1.0-0' }}</p>
+              </div>
+          </div>
+      </div>
         <div class="clearfix visible-sm hidden-md-up"></div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #199DDD; color: #fff;">
@@ -50,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="offset-md-4 offset-sm-3 col-md-4 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #5C3B87; color: #fff;">
                 <div class="card-block  p-3">
                     <h4 class="card-title">Total de Vacinadores</h4>
@@ -98,19 +106,19 @@
         <div class="col-12 mt-2 mb-2">
           <div class="card vacinados-por-local">
             <div class="card-header">
-              Vacinados por local
+              Vacinados por Município
             </div>
             <div class="card-body" style="overflow: auto;">
               <table class=" borderless" style="width: 100%;">
                 <thead>
                   <tr>
-                    <th scope="col">Unidade de Saúde</th>
+                    <th scope="col">Município</th>
                     <th scope="col">Quantidade</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of data.totalVacinadosPorLocal">
-                      <td class="border-right">{{ item.estabelecimento }}</td>
+                    <tr *ngFor="let item of data.totalVacinadosPorMunicipio">
+                      <td class="border-right table-item-link"><a href="#" (click)="selecionarMunicipio($event, item.codigo)" >{{ item.municipio }}</a></td>
                       <td>{{ item.quantidade | number: '1.0-0' }}</td>
                     </tr>
                 </tbody>
@@ -118,10 +126,50 @@
             </div>
           </div>
         </div>
+        <div class="unidades-modal" (click)="hideModal()" *ngIf="showModal">
+          <div class="row">
+            <div class="col-12 col-md-6 mt-2 mb-2 mx-auto">
+              <div class="card vacinados-por-municipios">
+                <div class="card-header">
+                  Unidades ({{ municipioSelecionado }})
+                </div>
+                <div class="card-body" style="overflow: auto;">
+                  <table class=" borderless" style="width: 100%;">
+                    <thead>
+                      <tr>
+                        <th scope="col">Unidade</th>
+                        <th scope="col">Quantidade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of unidadesSelecionadas">
+                          <td class="border-right table-item-link"><a>{{ item.unidade }}</a></td>
+                          <td>{{ item.quantidade | number: '1.0-0' }}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <div class="card mt-2 mb-2 vacinados-por-dia">
+        <div class="col-12 mt-2 mb-2">
+          <div class="card  vacinados-por-municipio">
+            <div class="card-header">
+              Vacinados por município
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <app-barchart
+                [barChartData]="barChartDataMunicipios"
+                [barChartLabels]="barChartLabelsMunicipios"
+              ></app-barchart>
+              </div>
+              </div>
+        </div>
+        <div class="col-12  mt-2">
+          <div class="card vacinados-por-dia">
             <div class="card-header">
               Vacinados por dia
             </div>
