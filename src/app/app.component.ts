@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     this.data.totalVacinadosporDia.forEach(element => {
       this.barChartLabels.push(element.data_aplicacao);
       this.barChartData[0].data.push(element.quantidade)
-      this.barChartData[0].label = 'Total de Vacinados'
+      this.barChartData[0].label = 'Total de Vacinados por Dia'
     });
 
     this.data.totalVacinadosPorMunicipio.forEach(element => {
