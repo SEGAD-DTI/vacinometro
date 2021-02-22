@@ -30,17 +30,17 @@ export class AppComponent implements OnInit {
   barChartDataMunicipios: ChartDataSets[] = [{ data: [], label: '' }];
 
   constructor(private service: AppService, private auth: AuthService){
-      this.auth.login();
-    setInterval(()=>{
-      this.getData();
-      this.categoriaDefault =  'Trabalhadores de Saúde';
-      this.barChartLabels = [];
-      this.barChartData = [{ data: [], label: '' }];
-
-      this.barChartLabelsMunicipios = [];
-      this.barChartDataMunicipios = [{ data: [], label: '' }];
-
-    }, 60000);
+      this.auth.login()
+      .then(resultado => {
+        this.getData();
+        this.categoriaDefault =  'Trabalhadores de Saúde';
+        this.barChartLabels = [];
+        this.barChartData = [{ data: [], label: '' }];
+  
+        this.barChartLabelsMunicipios = [];
+        this.barChartDataMunicipios = [{ data: [], label: '' }];
+        console.log("resultado: " + resultado['status']);
+      }).catch((erro) => console.log(erro));
   }
 
   ngOnInit(): void {

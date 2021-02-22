@@ -16,12 +16,12 @@ export class AuthService {
             this.oauthTokenUrl = `${environment.baseUrl}/oauth/token`;
         }
 
-    public login(): Promise<void> {
+    public login(): Promise<any> {
 
+      console.log("login");
         let headers = new HttpHeaders();
 
-        headers = headers
-                    .set('Content-Type', 'application/x-www-form-urlencoded');
+        headers = headers.set('Content-Type', 'application/x-www-form-urlencoded');
 
         const body = `grant_type=client_credentials&client_id=${environment.clientId}&client_secret=${environment.secret}`;
 
@@ -29,10 +29,13 @@ export class AuthService {
           .toPromise()
           .then(response => {
             this.armazenarToken(response['access_token']);
-            return Promise.resolve(null);
+
+           // return Promise.resolve(null);
+            return response;
           })
           .catch(response => {
             const responseError = response.error;
+            console.log("Error: " + response.error);
 
             if (response.status === 400) {
               if (responseError.error === 'invalid_grant') {
