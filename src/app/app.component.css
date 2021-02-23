@@ -3,6 +3,22 @@
   src: url('../assets/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
+.spinner, .spinner-categorias {
+  display: table;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  z-index: 99999;
+}
+
+.spinner-content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 
 header {
   background-color: #fff;

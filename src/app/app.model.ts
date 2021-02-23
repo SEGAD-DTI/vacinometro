@@ -8,5 +8,5 @@ export class AppModel {
   totalVacinadosporDia: any;
   totalCategorias: string;
   totalSubcategorias: string;
-  totalPorDose: any[];
+  totalPorDose: any[] = [{descricao:'', quantidade:''}, {descricao:'', quantidade:''}];
 }

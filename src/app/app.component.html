@@ -22,6 +22,13 @@
     </div>
   </div>
   </header>
+  <div class="spinner" *ngIf="!pageReady">
+    <div class="spinner-content">
+      <div class="spinner-grow text-success" role="status">
+        <span class="sr-only">Carregando...</span>
+      </div>
+    </div>
+  </div>
   <main>
     <div class="container">
       <div class="row mt-4 mb-4">
@@ -36,7 +43,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #f0ba37; color: #fff;" >
                 <div class="card-block  p-3">
-                    <h4 class="card-title">Total vacinados ({{ data.totalPorDose[0].descricao.trim() }})</h4>
+                    <h4 class="card-title">Total vacinados (1º Dose)</h4>
                     <p class="card-text">{{ data.totalPorDose[0].quantidade | number: '1.0-0' }}</p>
                 </div>
             </div>
@@ -44,7 +51,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;" >
               <div class="card-block  p-3">
-                  <h4 class="card-title">Total vacinados ({{ data.totalPorDose[1].descricao.trim() }})</h4>
+                  <h4 class="card-title">Total vacinados (2º Dose)</h4>
                   <p class="card-text">{{ data.totalPorDose[1].quantidade | number: '1.0-0' }}</p>
               </div>
           </div>

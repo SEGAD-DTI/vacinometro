@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   municipioSelecionado = '';
   unidadesSelecionadas = [];
 
+  pageReady = false;
+
   //seta a primeira categoria a sert mostrada
   categoriaDefault: string =  'Trabalhadores de Saúde';
   codigoDefault: number = 9
@@ -30,21 +32,27 @@ export class AppComponent implements OnInit {
   barChartDataMunicipios: ChartDataSets[] = [{ data: [], label: '' }];
 
   constructor(private service: AppService, private auth: AuthService){
-      this.auth.login()
-      .then(resultado => {
-        this.getData();
-        this.categoriaDefault =  'Trabalhadores de Saúde';
-        this.barChartLabels = [];
-        this.barChartData = [{ data: [], label: '' }];
-  
-        this.barChartLabelsMunicipios = [];
-        this.barChartDataMunicipios = [{ data: [], label: '' }];
-        console.log("resultado: " + resultado['status']);
-      }).catch((erro) => console.log(erro));
+    this.init();
+  }
+
+  init(){
+    this.pageReady = false;
+    this.auth.login()
+    .then(resultado => {
+      this.getData();
+      this.categoriaDefault =  'Trabalhadores de Saúde';
+      this.barChartLabels = [];
+      this.barChartData = [{ data: [], label: '' }];
+
+      this.barChartLabelsMunicipios = [];
+      this.barChartDataMunicipios = [{ data: [], label: '' }];
+    }).catch((erro) => console.log(erro));
   }
 
   ngOnInit(): void {
-    this.getData();
+    setInterval(()=>{
+      this.init();
+    },60000);
   }
 
   getData(){
@@ -70,12 +78,10 @@ export class AppComponent implements OnInit {
       this.barChartDataMunicipios[0].data.push(element.quantidade)
       this.barChartDataMunicipios[0].label = 'Total de Vacinados por Município'
     });
-
-
-
   }
 
   filtrar(event, categoria, codigo ){
+    this.pageReady = false;
     event.preventDefault();
     this.filtrarSubcategoria(categoria, codigo);
   }
@@ -84,6 +90,7 @@ export class AppComponent implements OnInit {
     this.service.filter(codigo).then(response=>{
       this.data.totalSubcategorias = response.totalSubcategorias;
       this.categoriaDefault = categoria;
+      this.pageReady = true;
     }).catch(e=>{
       console.log(codigo);
     });

@@ -18,7 +18,7 @@ export class AuthService {
 
     public login(): Promise<any> {
 
-      console.log("login");
+        //console.log("login");
         let headers = new HttpHeaders();
 
         headers = headers.set('Content-Type', 'application/x-www-form-urlencoded');
