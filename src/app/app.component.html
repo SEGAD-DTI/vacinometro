@@ -165,6 +165,22 @@
       </div>
       </div>
       <div class="row">
+
+        <div class="col-12  mt-2">
+          <div class="card vacinados-por-dia">
+            <div class="card-header">
+              Doses aplicadas por laboratório
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <app-doughnutchart
+                [doughnutChartData]="dChartDataVacinasLaboratorios"
+                [doughnutChartLabels]="dChartLabelsVacinasLaboratorios">
+              </app-doughnutchart>
+              </div>
+            </div>
+        </div>
+
+
         <div class="col-12 mt-2 mb-2">
           <div class="card  vacinados-por-municipio">
             <div class="card-header">

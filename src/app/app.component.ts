@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 import { AppModel } from './app.model';
-import { Label } from 'ng2-charts';
+import { Label, MultiDataSet, SingleDataSet } from 'ng2-charts';
 import { ChartDataSets } from 'chart.js';
 import { AuthService } from './auth.service';
 
@@ -31,6 +31,9 @@ export class AppComponent implements OnInit {
   barChartLabelsMunicipios: Label[] = [];
   barChartDataMunicipios: ChartDataSets[] = [{ data: [], label: '' }];
 
+  dChartDataVacinasLaboratorios: Label[] = [];
+  dChartLabelsVacinasLaboratorios: string[] = [];
+
   constructor(private service: AppService, private auth: AuthService){
     this.init();
   }
@@ -46,6 +49,9 @@ export class AppComponent implements OnInit {
 
       this.barChartLabelsMunicipios = [];
       this.barChartDataMunicipios = [{ data: [], label: '' }];
+
+      this.dChartDataVacinasLaboratorios = [];
+      this.dChartLabelsVacinasLaboratorios = [];
     }).catch((erro) => console.log(erro));
   }
 
@@ -77,6 +83,12 @@ export class AppComponent implements OnInit {
       this.barChartLabelsMunicipios.push(element.municipio);
       this.barChartDataMunicipios[0].data.push(element.quantidade)
       this.barChartDataMunicipios[0].label = 'Total de Vacinados por Município'
+    });
+
+    this.data.totalAplicadasPorLaboratorio.forEach(element => {     
+      this.dChartLabelsVacinasLaboratorios.push(element.vacina_nome);
+      this.dChartDataVacinasLaboratorios.push(element.quantidade);
+
     });
   }
 

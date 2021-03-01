@@ -15,6 +15,7 @@ import ptBr from '@angular/common/locales/pt';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { environment } from 'src/environments/environment.prod';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DoughnutchartComponent } from './charts/doughnutchart/doughnutchart.component';
 
 registerLocaleData(ptBr)
 
@@ -22,6 +23,7 @@ registerLocaleData(ptBr)
   declarations: [
     AppComponent,
     BarChartComponent,
+    DoughnutchartComponent,
 
   ],
   imports: [

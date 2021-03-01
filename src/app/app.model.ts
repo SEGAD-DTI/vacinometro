@@ -8,5 +8,12 @@ export class AppModel {
   totalVacinadosporDia: any;
   totalCategorias: string;
   totalSubcategorias: string;
+  totalAplicadasPorLaboratorio: [ 
+    {
+      vacina_fabricante_nome: '',
+      vacina_nome:'',
+      quantidade: ''
+    }
+  ];
   totalPorDose: any[] = [{descricao:'', quantidade:''}, {descricao:'', quantidade:''}];
 }
