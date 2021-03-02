@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
 
   data: AppModel = new AppModel;
-  dataAtualizacao = (new Date()).toLocaleString('pt-BR');
+  dataAtualizacao = null;
   showModal = false;
   municipioSelecionado = '';
   unidadesSelecionadas = [];
@@ -66,9 +66,14 @@ export class AppComponent implements OnInit {
       this.data = response;
       this.filtrarSubcategoria(this.categoriaDefault, this.codigoDefault);
       this.setDataGrafico();
+      this.setDataAtualizacao(this.data.dataImportacao);
     }).catch(e=>{
       console.log(e);
     });
+  }
+
+  setDataAtualizacao(date: string){
+    this.dataAtualizacao = (new Date(date)).toLocaleString(['pt-BR']);
   }
 
   setDataGrafico(){

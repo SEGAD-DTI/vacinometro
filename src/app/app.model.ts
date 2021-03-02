@@ -8,6 +8,7 @@ export class AppModel {
   totalVacinadosporDia: any;
   totalCategorias: string;
   totalSubcategorias: string;
+  dataImportacao: string;
   totalAplicadasPorLaboratorio: [ 
     {
       vacina_fabricante_nome: '',
