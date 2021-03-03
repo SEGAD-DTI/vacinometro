@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VACINÔMETRO RORAIMA</title>
+  <title>VACINÔMETRO COVID-19 RORAIMA</title>
 </head>
 <body>
   <header>
@@ -15,9 +15,8 @@
         </div>
       </div>
     <div class="row">
-      <div class="col-12 p-3" style="background-color: #00A5F7; text-align: center;">
-        <h1 style="font-size: 2rem;text-transform: uppercase;">Vacinômetro</h1>
-        <h2 style="text-transform: uppercase;">Covid-19</h2>
+      <div class="col-12 p-1" style="background-color: #00A5F7; text-align: center;">
+        <h1 style="font-size:1rem;text-transform: uppercase; margin: 0;">Vacinômetro Covid-19</h1>
       </div>
     </div>
   </div>
@@ -31,11 +30,164 @@
   </div>
   <main>
     <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 mt-2 mb-2">
+          <div class="card estoque">
+            <div class="card-header">
+              Estoque de Doses
+            </div>
+            <div class="card-body">
+        
+              <div class="row mt-4 mb-4">
+                <div class="col-12">
+                  <h5>Doses Recebidas</h5>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Doses Recebidas</h4>
+                            <p class="card-text">{{ data.estoque[0].doses_recebidas | number: '1.0-0' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                      <div class="card-block p-3">
+                          <h4 class="card-title">1º Dose</h4>
+                          <p class="card-text">{{ data.estoque[0].doses_recebidas_1_dose | number: '1.0-0' }}</p>
+                      </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                    <div class="card-block p-3">
+                        <h4 class="card-title">2º Dose</h4>
+                        <p class="card-text">{{ data.estoque[0].doses_recebidas_2_dose | number: '1.0-0' }}</p>
+                    </div>
+                </div>
+              </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                  <div class="card-block p-3">
+                      <h4 class="card-title">Para Indígenas</h4>
+                      <p class="card-text">{{ data.estoque[0].doses_recebidas_indigenas | number: '1.0-0' }}</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                <div class="card-block p-3">
+                    <h4 class="card-title">Demais Grupos</h4>
+                    <p class="card-text">{{  data.estoque[0].doses_recebidas_publico_geral | number: '1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+
+
+      </div>
+              <div class="row mt-4 mb-4">
+                <div class="col-12">
+                  <h5>Doses Distribuídas</h5>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Doses Distribuídas</h4>
+                            <p class="card-text">{{  data.estoque[0].doses_distribuidas | number: '1.0-0' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                      <div class="card-block p-3">
+                          <h4 class="card-title">1º Dose</h4>
+                          <p class="card-text">{{ data.estoque[0].doses_distribuidas_1_dose | number: '1.0-0' }}</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                      <div class="card-block p-3">
+                          <h4 class="card-title">2º Dose</h4>
+                          <p class="card-text">{{ data.estoque[0].doses_distribuidas_2_dose | number: '1.0-0' }}</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                      <div class="card-block p-3">
+                          <h4 class="card-title">Para Indígenas</h4>
+                          <p class="card-text">{{ data.estoque[0].doses_distribuidas_indigenas | number: '1.0-0' }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                    <div class="card-block p-3">
+                        <h4 class="card-title">Demais Grupos</h4>
+                        <p class="card-text">{{ data.estoque[0].doses_distribuidas_publico_geral | number: '1.0-0' }}</p>
+                    </div>
+                </div>
+            </div>
+        
+              </div>
+
+              <div class="row mt-4 mb-4">
+                <div class="col-12">
+                  <h5>Saldo de Doses em Estoque</h5>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Saldo Estoque</h4>
+                            <p class="card-text">{{ data.estoque[0].saldo_estoque | number: '1.0-0' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                      <div class="card-block p-3">
+                          <h4 class="card-title">Para Indígenas</h4>
+                          <p class="card-text">{{ data.estoque[0].saldo_estoque_indegena | number: '1.0-0' }}</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
+                    <div class="card-block p-3">
+                        <h4 class="card-title">Demais Grupos</h4>
+                        <p class="card-text">{{ data.estoque[0].saldo_estoque_publico_geral | number: '1.0-0' }}</p>
+                    </div>
+                </div>
+            </div>
+              </div>
+
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    
+
+
+
+
       <div class="row mt-4 mb-4">
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #DA6F2D; color: #fff;">
                 <div class="card-block p-3">
-                    <h4 class="card-title">Total de Vacinados</h4>
+                    <h4 class="card-title">Doses Aplicadas</h4>
                     <p class="card-text">{{ data.totalValcinados | number: '1.0-0' }}</p>
                 </div>
             </div>
@@ -43,7 +195,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #f0ba37; color: #fff;" >
                 <div class="card-block  p-3">
-                    <h4 class="card-title">Total vacinados (1º Dose)</h4>
+                    <h4 class="card-title">Total 1º Dose</h4>
                     <p class="card-text">{{ data.totalPorDose[0].quantidade | number: '1.0-0' }}</p>
                 </div>
             </div>
@@ -51,7 +203,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;" >
               <div class="card-block  p-3">
-                  <h4 class="card-title">Total vacinados (2º Dose)</h4>
+                  <h4 class="card-title">Total 2º Dose</h4>
                   <p class="card-text">{{ data.totalPorDose[1].quantidade | number: '1.0-0' }}</p>
               </div>
           </div>
@@ -74,9 +226,9 @@
             </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="card deck mt-2 mb-2" style="background-color: #5C3B87; color: #fff;">
+          <div class="card deck mt-2 mb-2" style="background-color: #433f77; color: #fff;">
               <div class="card-block  p-3">
-                  <h4 class="card-title">Público Alvo</h4>
+                  <h4 class="card-title">Público Alvo (Fase {{ data.publicoAlvoFase[0].fase }})</h4>
                   <p class="card-text">{{ data.publicoAlvoFase[0].total | number: '1.0-0' }}</p>
               </div>
           </div>
