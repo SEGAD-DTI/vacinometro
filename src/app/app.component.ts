@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     setInterval(()=>{
       this.init();
-    },60000);
+    },120000);
   }
 
   getData(){
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
     });
 
     this.data.totalAplicadasPorLaboratorio.forEach(element => {     
-      this.dChartLabelsVacinasLaboratorios.push(element.vacina_nome);
+      this.dChartLabelsVacinasLaboratorios.push(element.vacina_fabricante_nome);
       this.dChartDataVacinasLaboratorios.push(element.quantidade);
 
     });
