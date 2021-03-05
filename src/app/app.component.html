@@ -55,7 +55,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
                       <div class="card-block p-3">
-                          <h4 class="card-title">1º Dose</h4>
+                          <h4 class="card-title">1ª Dose</h4>
                           <p class="card-text">{{ data.estoque[0].doses_recebidas_1_dose | number: '1.0-0' }}</p>
                       </div>
                   </div>
@@ -64,7 +64,7 @@
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
                     <div class="card-block p-3">
-                        <h4 class="card-title">2º Dose</h4>
+                        <h4 class="card-title">2ª Dose</h4>
                         <p class="card-text">{{ data.estoque[0].doses_recebidas_2_dose | number: '1.0-0' }}</p>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
                       <div class="card-block p-3">
-                          <h4 class="card-title">1º Dose</h4>
+                          <h4 class="card-title">1ª Dose</h4>
                           <p class="card-text">{{ data.estoque[0].doses_distribuidas_1_dose | number: '1.0-0' }}</p>
                       </div>
                   </div>
@@ -114,7 +114,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
                       <div class="card-block p-3">
-                          <h4 class="card-title">2º Dose</h4>
+                          <h4 class="card-title">2ª Dose</h4>
                           <p class="card-text">{{ data.estoque[0].doses_distribuidas_2_dose | number: '1.0-0' }}</p>
                       </div>
                   </div>
@@ -195,7 +195,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="card deck mt-2 mb-2" style="background-color: #f0ba37; color: #fff;" >
                 <div class="card-block  p-3">
-                    <h4 class="card-title">Total 1º Dose</h4>
+                    <h4 class="card-title">Total 1ª Dose</h4>
                     <p class="card-text">{{ data.totalPorDose[0].quantidade | number: '1.0-0' }}</p>
                 </div>
             </div>
@@ -203,7 +203,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;" >
               <div class="card-block  p-3">
-                  <h4 class="card-title">Total 2º Dose</h4>
+                  <h4 class="card-title">Total 2ª Dose</h4>
                   <p class="card-text">{{ data.totalPorDose[1].quantidade | number: '1.0-0' }}</p>
               </div>
           </div>
@@ -238,7 +238,7 @@
         <div class="col-md-6 mt-2 mb-2">
           <div class="card categorias">
             <div class="card-header">
-              Vacinados por categoria
+              Doses Aplicadas por Categoria
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
@@ -273,7 +273,7 @@
         <div class="col-12 mt-2 mb-2">
           <div class="card vacinados-por-local">
             <div class="card-header">
-              Vacinados por Município
+              Doses Aplicadas por Município
             </div>
             <div class="card-body" style="overflow: auto;">
               <table class=" borderless" style="width: 100%;">
@@ -329,7 +329,7 @@
         <div class="col-12  mt-2">
           <div class="card vacinados-por-dia">
             <div class="card-header">
-              Doses aplicadas por laboratório
+              Doses Aplicadas por Laboratório
             </div>
             <div class="card-body" style="overflow: auto;">
               <app-doughnutchart
@@ -344,7 +344,7 @@
         <div class="col-12 mt-2 mb-2">
           <div class="card  vacinados-por-municipio">
             <div class="card-header">
-              Vacinados por município
+              Doses Aplicadas por Município
             </div>
             <div class="card-body" style="overflow: auto;">
               <app-barchart
@@ -357,7 +357,7 @@
         <div class="col-12  mt-2">
           <div class="card vacinados-por-dia">
             <div class="card-header">
-              Vacinados por dia
+              Doses Aplicadas por Dia
             </div>
             <div class="card-body" style="overflow: auto;">
               <app-barchart
