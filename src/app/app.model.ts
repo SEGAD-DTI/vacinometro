@@ -12,6 +12,8 @@ export class AppModel {
       doses_distribuidas_1_dose: 0,
       doses_distribuidas_2_dose: 0,
       doses_distribuidas_indigenas: 0,
+      doses_distribuidas_indigenas_dleste: 0,
+      doses_distribuidas_indigenas_dyanomami: 0,
       doses_distribuidas_publico_geral: 0,
       saldo_estoque: 0,
       saldo_estoque_indegena: 0,

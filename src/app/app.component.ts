@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     setInterval(()=>{
       this.init();
-    },120000);
+    },300000);
   }
 
   getData(){
