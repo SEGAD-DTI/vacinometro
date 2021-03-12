@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
 
   data: AppModel = new AppModel;
-  dataAtualizacao = (new Date()).toLocaleString('pt-BR');
+  dataAtualizacao = null;
   showModal = false;
   municipioSelecionado = '';
   unidadesSelecionadas = [];
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     setInterval(()=>{
       this.init();
-    },60000);
+    },300000);
   }
 
   getData(){
@@ -66,9 +66,14 @@ export class AppComponent implements OnInit {
       this.data = response;
       this.filtrarSubcategoria(this.categoriaDefault, this.codigoDefault);
       this.setDataGrafico();
+      this.setDataAtualizacao(this.data.dataImportacao);
     }).catch(e=>{
       console.log(e);
     });
+  }
+
+  setDataAtualizacao(date: string){
+    this.dataAtualizacao = (new Date(date)).toLocaleString(['pt-BR']);
   }
 
   setDataGrafico(){
@@ -86,7 +91,7 @@ export class AppComponent implements OnInit {
     });
 
     this.data.totalAplicadasPorLaboratorio.forEach(element => {     
-      this.dChartLabelsVacinasLaboratorios.push(element.vacina_nome);
+      this.dChartLabelsVacinasLaboratorios.push(element.vacina_fabricante_nome);
       this.dChartDataVacinasLaboratorios.push(element.quantidade);
 
     });

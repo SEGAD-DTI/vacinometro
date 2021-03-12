@@ -100,6 +100,18 @@ table td {
   border-right: 1px solid black;
 }
 
+.estoque {
+  background-color: #F8F8F8;
+}
+
+.estoque h5 {
+  color: #36C8C9;
+}
+
+.estoque .deck {
+  box-shadow: none;
+}
+
 .categorias, .vacinados-por-local, .vacinados-por-dia, .vacinados-por-municipio{
   height: 400px;
   box-shadow: -1px 2px 15px -4px rgba(0,0,0,0.75);
