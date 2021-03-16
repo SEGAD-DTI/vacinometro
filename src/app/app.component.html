@@ -27,7 +27,7 @@
         <div class="col-md-12 mt-2 mb-2">
           <div class="card estoque">
             <div class="card-header">
-              Estoque de Doses
+              Movimentação de Doses COVID-19
             </div>
             <div class="card-body">
               <div class="row mt-4 mb-4">
@@ -63,7 +63,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="card deck mt-2 mb-2" style="background-color: #5ea9b1; color: #fff;">
                   <div class="card-block p-3">
-                      <h4 class="card-title">Para Indígenas <a style="color: red; font-weight: bold; font-size: 1.2rem; text-decoration: none;" href="#total-inigenas"><small>1*</small></a></h4>
+                      <h4 class="card-title">Para Indígenas <a style="color: red; font-weight: bold; font-size: 1.2rem; text-decoration: none;" href="#obs-total-indigenas"><small><sup>(1)</sup></small></a></h4>
                       <p class="card-text">{{ data.estoque[0].doses_recebidas_indigenas | number: '1.0-0' }}</p>
                   </div>
               </div>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        
+
               </div>
 
 
@@ -151,7 +151,7 @@
                 <div class="col-12 mt-2 mb-2">
                   <div class="card vacinados-por-local">
                     <div class="card-header">
-                      Saldo de Doses em Estoque por Municípios/DSEIs  <a style="color: red; font-weight: bold; font-size: 1.2rem; text-decoration: none;" href="#total-municipais"><small>2*</small></a>
+                      Saldo de Doses em Estoque por Municípios/DSEI  <a style="color: red; font-weight: bold; font-size: 1.2rem; text-decoration: none;" href="#obs-total-municipais"><small><sup>(2)</sup></small></a>
                     </div>
                     <div class="card-body" style="overflow: auto;">
                       <table class=" borderless" style="width: 100%;">
@@ -265,11 +265,11 @@
                     </div>
                   </div>
               </div>
-              </div>  
+              </div>
 
               <div class="row mt-4 mb-4">
                 <div class="col-12">
-                  <h5>Saldo de Doses em Estoque - Estado</h5>
+                  <h5>Saldo de Doses em Estoque - Rede de Frio Estadual</h5>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="card deck mt-2 mb-2" style="background-color: #00d4c9; color: #fff;">
@@ -299,7 +299,7 @@
             </div>
               </div>
 
-              
+
 
             </div>
           </div>
@@ -307,7 +307,7 @@
       </div>
 
 
-    
+
 
 
 
@@ -508,30 +508,28 @@
             <small style="margin-bottom: 15px;" class="block">O objetivo é permitir a transmissão dos dados a RNDS (Rede Nacional de Dados em Saúde). A nota bem como seus anexos, podem ser consultadas no site do CONASEMS</small>
             <small style="margin-bottom: 15px;" class="block">
               Devido a necessidade emergencial de desenvolvimento de software próprio,
-              ainda não foi possível realizar a integração com a RNDS 
+              ainda não foi possível realizar a integração com a RNDS
               (Rede Nacional de Dados em Saúde), que alimenta os painéis nacionais. As informações
               disponibilizadas são importadas da Fonte de dados Rede Nacional de Dados em Saúde em formato CSV
             </small>
-            <small id="total-inigenas" style="margin-bottom: 15px;" class="block"><span class="text-danger">1*</span> 
+            <small id="obs-total-indigenas" style="margin-bottom: 15px;" class="block"><span class="text-danger"><sup>(1)</sup></span>
               Pactuado Conforme RESOLUÇÃO CIB/RR Nº 01/2021.
               A População indígena aldeada será atendida de forma programada,
-              conforme planejamento dos Distritos Sanitários Especiais Indígenas
-              Leste e Yanomami: Ofício nº 02/2021 LRR/DSEI/SESAI/MS, Processo
-              SEI nº 25063.000036/2021-12 e Ofício nº 168/2021/YANOMAMI/DSEI/SESAI/MS
-              Processo SEI nº 25064.000217/2021-39. Sendo  esta população atendida
-              integralmente, conforme as capacidades logísticas, operacionais
-              e de armazenamento dos DSEI´s.
+              conforme planejamento dos Distritos Sanitários Especiais Indígenas Leste
+              e Yanomami: Ofício nº 02/2021 LRR/DSEI/SESAI/MS,
+              Processo SEI nº 25063.000036/2021-12 e
+              Ofício nº 168/2021/YANOMAMI/DSEI/SESAI/MS
+              Processo SEI nº 25064.000217/2021-39. Sendo esta população
+              atendida integralmente, conforme as capacidades logísticas,
+              operacionais e de armazenamento dos DSEI Leste e Yanomami.
 
             </small>
-            <small id="total-municipais" style="margin-bottom: 15px;" class="block"><span class="text-danger">2*</span> 
-              Saldo de Doses em Estoque por Município/DSEI's é 
-              calculado da seguinte forma:<br>
-              Doses Distribuidas ao Municipios/DSEI’s – 
-              Doses Aplicadas por Municipios/DSEi’s = Saldo de Doses 
-              em Estoque nos Municipios/DSEI’s<br>
-              Obs: O valor de Doses Aplicadas por Municípios/DSEI's
-               tem como base o informado no SISTEMA SIPNI por cada
-                Município e/ou DSEI's.
+            <small id="obs-total-municipais" style="margin-bottom: 15px;" class="block"><span class="text-danger"><sup>(2)</sup></span>
+              Memória de cálculo: Diferença entre Total de Doses
+              Distribuídas ao Município/DSEI e Total de Doses Aplicadas
+              por Município/DSEI = Saldo de Doses em Estoque no Município/DSEI.
+              O Total de Doses Aplicadas por Município/DSEI tem como fonte os registros
+              de vacinação do SI-PNI módulo campanha informado por cada Município/DSEI.
 
             </small>
           </div>
