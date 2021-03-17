@@ -158,77 +158,350 @@
                         <thead>
                           <tr>
                             <th scope="col">Município/DSEI</th>
-                            <th scope="col">Quantidade</th>
+                            <th scope="col">Doses Distribuídas</th>
+                            <th scope="col">Doses Aplicadas</th>
+                            <th scope="col">%Alcançado</th>
+                            <th scope="col">Saldo em Estoque</th>
                           </tr>
                         </thead>
                         <tbody>
                               <tr>
                                 <td class="border-right table-item-link">Alto Alegre</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_alto_alegre | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_alto_alegre_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_alto_alegre_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_alto_alegre_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_alto_alegre_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_alto_alegre_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_alto_alegre_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Amajarí</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_amajari | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_amajari_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_amajari_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_amajari_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_amajari_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_amajari_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_amajari_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Boa Vista</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_boa_vista | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_boa_vista_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_boa_vista_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_boa_vista_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_boa_vista_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_boa_vista_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_boa_vista_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Bonfim</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_bonfim | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_bonfim_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_bonfim_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_bonfim_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_bonfim_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_bonfim_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_bonfim_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Cantá</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_canta | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_canta_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_canta_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_canta_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_canta_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_canta_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_canta_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Caracaraí</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_caracarai | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_caracarai_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_caracarai_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_caracarai_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_caracarai_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_caracarai_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_caracarai_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Caroebe</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_caroebe | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_caroebe_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_caroebe_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_caroebe_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_caroebe_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_caroebe_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_caroebe_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Iracema</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_iracema | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_iracema_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_iracema_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_iracema_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_iracema_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_iracema_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_iracema_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Mucajaí</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_mucajai | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_mucajai_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_mucajai_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_mucajai_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_mucajai_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_mucajai_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_mucajai_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Normandia</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_normandia | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_normandia_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_normandia_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_normandia_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_normandia_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_alto_alegre_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_alto_alegre_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Pacaraima</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_pacaraima | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_pacaraima_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_pacaraima_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_pacaraima_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_pacaraima_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_pacaraima_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_pacaraima_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">Rorainópolis</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_rorainopolis | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_rorainopolis_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_rorainopolis_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_rorainopolis_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_rorainopolis_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_rorainopolis_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_rorainopolis_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">São João da Baliza</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_sao_joao_baliza | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_sao_joao_baliza_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_sao_joao_baliza_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_sao_joao_baliza_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_sao_joao_baliza_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_sao_joao_baliza_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_sao_joao_baliza_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">São Luiz</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_sao_luiz | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_sao_luiz_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_sao_luiz_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_sao_luiz_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_sao_luiz_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_sao_luiz_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_sao_luiz_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                                     <tr>
                                 <td class="border-right table-item-link">Uiramutã</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_uiramuta | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_uiramuta_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_uiramuta_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_uiramuta_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_uiramuta_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_uiramuta_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_uiramuta_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">DSEI Leste</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_dsei_leste | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_dsei_leste_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_dsei_leste_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_dsei_leste_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_dsei_leste_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_dsei_leste_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_dsei_leste_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                               <tr>
                                 <td class="border-right table-item-link">DSEI Yanomami</td>
-                                <td>{{ data.distribuidoMunicipios[0].total_geral_dsei_yanomami | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_dsei_yanomami_envidadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">{{ data.distribuidoMunicipios[0].total_dsei_yanomami_aplicadas_nepni | number: '1.0-0' }}</td>
+                                <td class="border-right table-item-link">
+                                  {{ 
+                                    (data.distribuidoMunicipios[0].total_dsei_yanomami_aplicadas_nepni /
+                                    data.distribuidoMunicipios[0].total_dsei_yanomami_envidadas_nepni) * 100
+                                    | number: '1.0-2'
+                                   }}
+                                
+                                </td>
+                                <td>
+                                  {{
+                                     data.distribuidoMunicipios[0].total_dsei_yanomami_envidadas_nepni -
+                                     data.distribuidoMunicipios[0].total_dsei_yanomami_aplicadas_nepni
+                                    | number: '1.0-0' 
+                                  }}
+                                </td>
                               </tr>
                         </tbody>
                       </table>
