@@ -7,39 +7,39 @@ export class AppModel {
         created_at: null,
         updated_at: null,
         total_alto_alegre_envidadas_nepni: 0,
-        total_alto_alegre_aplicadas_nepni: 0,
+        total_alto_alegre_aplicadas_sipni: 0,
         total_amajari_envidadas_nepni: 0,
-        total_amajari_aplicadas_nepni: 0,
+        total_amajari_aplicadas_sipni: 0,
         total_boa_vista_envidadas_nepni: 0,
-        total_boa_vista_aplicadas_nepni: 0,
+        total_boa_vista_aplicadas_sipni: 0,
         total_bonfim_envidadas_nepni: 0,
-        total_bonfim_aplicadas_nepni: 0,
+        total_bonfim_aplicadas_sipni: 0,
         total_canta_envidadas_nepni: 0,
-        total_canta_aplicadas_nepni: 0,
+        total_canta_aplicadas_sipni: 0,
         total_caracarai_envidadas_nepni: 0,
-        total_caracarai_aplicadas_nepni: 0,
+        total_caracarai_aplicadas_sipni: 0,
         total_caroebe_envidadas_nepni: 0,
-        total_caroebe_aplicadas_nepni: 0,
+        total_caroebe_aplicadas_sipni: 0,
         total_iracema_envidadas_nepni: 0,
-        total_iracema_aplicadas_nepni: 0,
+        total_iracema_aplicadas_sipni: 0,
         total_mucajai_envidadas_nepni: 0,
-        total_mucajai_aplicadas_nepni: 0,
+        total_mucajai_aplicadas_sipni: 0,
         total_normandia_envidadas_nepni: 0,
-        total_normandia_aplicadas_nepni: 0,
+        total_normandia_aplicadas_sipni: 0,
         total_pacaraima_envidadas_nepni: 0,
-        total_pacaraima_aplicadas_nepni: 0,
+        total_pacaraima_aplicadas_sipni: 0,
         total_rorainopolis_envidadas_nepni: 0,
-        total_rorainopolis_aplicadas_nepni: 0,
+        total_rorainopolis_aplicadas_sipni: 0,
         total_sao_joao_baliza_envidadas_nepni: 0,
-        total_sao_joao_baliza_aplicadas_nepni: 0,
+        total_sao_joao_baliza_aplicadas_sipni: 0,
         total_sao_luiz_envidadas_nepni: 0,
-        total_sao_luiz_aplicadas_nepni: 0,
+        total_sao_luiz_aplicadas_sipni: 0,
         total_uiramuta_envidadas_nepni: 0,
-        total_uiramuta_aplicadas_nepni: 0,
+        total_uiramuta_aplicadas_sipni: 0,
         total_dsei_leste_envidadas_nepni: 0,
-        total_dsei_leste_aplicadas_nepni: 0,
+        total_dsei_leste_aplicadas_sipni: 0,
         total_dsei_yanomami_envidadas_nepni: 0,
-        total_dsei_yanomami_aplicadas_nepni: 0
+        total_dsei_yanomami_aplicadas_sipni: 0
       }
   ]
   estoque:any = [
@@ -74,7 +74,7 @@ export class AppModel {
   totalSubcategorias: string;
   dataImportacao: string;
   publicoAlvoFase = [{fase: 0, total: 0}];
-  totalAplicadasPorLaboratorio: [ 
+  totalAplicadasPorLaboratorio: [
     {
       vacina_fabricante_nome: '',
       vacina_nome:'',
