@@ -166,6 +166,7 @@ table td {
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */
@@ -185,10 +186,14 @@ table td {
   background: #b30000;
 }
 
+.table-dist-municipios th, .table-dist-municipios td {
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
 @media (min-width: 576px) {
   .list-group-item, .list-group-item a {
     font-size: 1rem;;
-
   }
 }
 
